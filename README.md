@@ -6,7 +6,10 @@ ADDME!
 
 ## Installation
 
-Needs to be added to your level: [Ex#1](https://wiki.beyondunreal.com/Legacy:MyLevel).
+Needs to be added to your level:
+
+- <https://wiki.beyondunreal.com/Legacy:MyLevel>
+- <https://wiki.beyondunreal.com/Legacy:Unreal_Mapping_FAQ#Packages>
 
 ## Building and Dependancies
 
