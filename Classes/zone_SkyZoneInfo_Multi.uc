@@ -1,7 +1,6 @@
 // Sources: partially here <https://ut99.org/viewtopic.php?t=6404>
 // Mostly here <https://wiki.beyondunreal.com/Legacy:MultiSkyboxZoneInfo>
-class zone_SkyZoneInfo_Multi extends ZoneInfo
-  placeable;
+class zone_SkyZoneInfo_Multi extends ZoneInfo;
 
 
 // Input the tag of the skybox you want the fake backdrop surfaces of the zone to display

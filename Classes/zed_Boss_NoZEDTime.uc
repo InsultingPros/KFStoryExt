@@ -1,14 +1,16 @@
-class zed_Boss_NoZEDTime extends KFStoryGame.ZombieBoss_NoZEDTime;
+class zed_Boss_NoZEDTime extends ZombieBoss_NoZEDTime;
 
+
+// admin summon KFStoryExt.zed_Boss_NoZEDTime
 
 // check other alive patriarchs
-final protected function bool AmIAlone()
+simulated function bool bTheOnlyPat()
 {
-  local ZombieBoss Patriarch;
+  local ZombieBoss Pat;
 
-  foreach DynamicActors(class'ZombieBoss', Patriarch)
+  foreach DynamicActors(class'ZombieBoss', Pat)
   {
-    if (Patriarch != none && Patriarch != self && Patriarch.Health > 0)
+    if (Pat != none && Pat != self && Pat.Health > 0)
     {
       return false;
     }
@@ -18,59 +20,12 @@ final protected function bool AmIAlone()
 }
 
 
-state SneakAround
+simulated function CloakBoss()
 {
-Begin:
-  // If there's another patriarch then DO NOT CLOAK while charging
-  if (AmIAlone())
-    CloakBoss();
+  if (!bTheOnlyPat())
+    return;
 
-  while (true)
-  {
-    sleep(0.5);
-
-    if (Level.TimeSeconds - SneakStartTime > 10.0)
-    {
-      GoToState('');
-    }
-
-    // If there's another patriarch then DO NOT CLOAK while charging
-    if (AmIAlone() && !bCloaked && !bShotAnim)
-      CloakBoss();
-    if (!Controller.IsInState('ZombieHunt') && !Controller.IsInState('WaitForAnim'))
-    {
-      Controller.GoToState('ZombieHunt');
-    }
-  }
-}
-
-
-state InitialSneak
-{
-Begin:
-  // If there's another patriarch then DO NOT CLOAK while charging
-  if (AmIAlone())
-    CloakBoss();
-
-  while (true)
-  {
-    sleep(0.5);
-    SneakCount++;
-
-    // Added sneakcount hack to try and fix the endless loop crash. Try and track down what was causing this later - Ramm
-    if (SneakCount > 1000 || (Controller != none && BossZombieController(Controller).bAlreadyFoundEnemy))
-    {
-      GoToState('');
-    }
-
-    // If there's another patriarch then DO NOT CLOAK while charging
-    if (AmIAlone() && !bCloaked && !bShotAnim)
-      CloakBoss();
-    if (!Controller.IsInState('InitialHunting') && !Controller.IsInState('WaitForAnim'))
-    {
-      Controller.GoToState('InitialHunting');
-    }
-  }
+  super.CloakBoss();
 }
 
 
