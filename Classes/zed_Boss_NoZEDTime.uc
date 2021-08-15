@@ -2,7 +2,6 @@ class zed_Boss_NoZEDTime extends ZombieBoss_NoZEDTime;
 
 
 // admin summon KFStoryExt.zed_Boss_NoZEDTime
-
 // check other alive patriarchs
 simulated function bool bTheOnlyPat()
 {
