@@ -1,6 +1,6 @@
 # KFStoryExt
 
-![GitHub all releases](https://img.shields.io/github/downloads/InsultingPros/KFStoryExt/total)
+[![GitHub all releases](https://img.shields.io/github/downloads/InsultingPros/KFStoryExt/total)](https://github.com/InsultingPros/KFStoryExt/releases)
 
 Contains some handy tools for Killing Floor 1 map makers.
 
